@@ -1,0 +1,7 @@
+# compare substrings and return the count occurance.
+
+binaryNumber| subString | count |
+
+1000001     | 10        | 1     |
+1000001     | 00        | 4     |
+10101       | 101       | 2     |    
