@@ -1,15 +1,14 @@
 const substring = 10;
 let binaryNumber = 1000001;
-let lengthOfSubstring = 0;
-let remainder = 0;
+let divisor = 1;
 let duplicatedSubstring = substring;
 
 while(duplicatedSubstring !== 0) {
-    remainder = duplicatedSubstring % 2;
+    let remainder = duplicatedSubstring % 2;
     remainder && duplicatedSubstring--;
-    lengthOfSubstring++;
+    divisor = divisor * 10;
     duplicatedSubstring = duplicatedSubstring / 10;
 }
 
 console.log(duplicatedSubstring)
-console.log(substring, binaryNumber, lengthOfSubstring);
+console.log(substring, divisor);
