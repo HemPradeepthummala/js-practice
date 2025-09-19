@@ -4,21 +4,7 @@ let lengthOfSubstring = 0;
 let remainder = 0;
 let duplicatedSubstring = substring;
 
-if(duplicatedSubstring !== 0){
-    remainder = duplicatedSubstring % 2;
-    remainder && duplicatedSubstring--;
-    lengthOfSubstring++;
-    duplicatedSubstring = duplicatedSubstring / 10;
-}
-
-if(duplicatedSubstring !== 0){
-    remainder = duplicatedSubstring % 2;
-    remainder && duplicatedSubstring--;
-    lengthOfSubstring++;
-    duplicatedSubstring = duplicatedSubstring / 10;
-}
-
-if(duplicatedSubstring !== 0){
+while(duplicatedSubstring !== 0) {
     remainder = duplicatedSubstring % 2;
     remainder && duplicatedSubstring--;
     lengthOfSubstring++;
