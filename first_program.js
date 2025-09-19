@@ -1,0 +1,33 @@
+const number1 = 123
+const number2 = 123
+console.log(123)
+console.log(123)
+console.log('equal')
+console.log(number1===number2)
+console.log(' not equal')
+console.log(number1!==number2)
+console.log('less')
+console.log(number1<number2)
+console.log('great')
+console.log(number1>number2)
+console.log('less Equal')
+console.log(number1<=number2)
+console.log('great Equal')
+console.log(number2>=number1)
+
+const string1 = 'a'
+const string2 = 'b'
+console.log(string1)
+console.log(string2)
+console.log('equal')
+console.log(string1===string2)
+console.log(' not equal')
+console.log(string1!==string2)
+console.log('less')
+console.log(string1<string2)
+console.log('great')
+console.log(string1>string2)
+console.log('less Equal')
+console.log(string1<=string2)
+console.log('great Equal')
+console.log(string1>=string2)
