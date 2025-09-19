@@ -1,0 +1,9 @@
+# reverse a given string
+
+inputString |  reversedString
+
+HemPradeep  |   peedarPmeH
+racecar     |   racecar
+level       |   level
+javascript  |   tpircsavaj
+thoughtworks|   skrowthguoht
