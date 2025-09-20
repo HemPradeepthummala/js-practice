@@ -10,17 +10,15 @@ while(duplicatedSubstring !== 0) {
     duplicatedSubstring = duplicatedSubstring / 10;
 }
 
-let occurance = 0;
+let stringOccuranceCounter = 0;
 
 while (binaryNumber !== 0) {
     let comparableString = binaryNumber % divisor;
     let remainder = binaryNumber % 2;
     remainder && binaryNumber--;
     binaryNumber = binaryNumber / 10;
-    comparableString === substring && occurance++;
+    comparableString === substring && stringOccuranceCounter++;
 }
 
-console.log(occurance);
-
-console.log(duplicatedSubstring);
-console.log(substring, divisor);
+console.log(substring,"=> substring", divisor, "=> divisor");
+console.log(stringOccuranceCounter, "=> occurance");
