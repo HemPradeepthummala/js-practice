@@ -1,5 +1,5 @@
-const substring = 10;
-let binaryNumber = 1000001;
+const substring = 101;
+let binaryNumber = 10101;
 let divisor = 1;
 let duplicatedSubstring = substring;
 
@@ -10,5 +10,17 @@ while(duplicatedSubstring !== 0) {
     duplicatedSubstring = duplicatedSubstring / 10;
 }
 
-console.log(duplicatedSubstring)
+let occurance = 0;
+
+while (binaryNumber !== 0) {
+    let comparableString = binaryNumber % divisor;
+    let remainder = binaryNumber % 2;
+    remainder && binaryNumber--;
+    binaryNumber = binaryNumber / 10;
+    comparableString === substring && occurance++;
+}
+
+console.log(occurance);
+
+console.log(duplicatedSubstring);
 console.log(substring, divisor);
