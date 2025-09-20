@@ -1,4 +1,4 @@
-const inputString = "  he m";
+const inputString = "  Hem Pradeep Royal";
 const leadingCharacter = " ";
 let duplicatedString = "";
 
@@ -8,4 +8,4 @@ for (let index = 0; index < inputString.length; index++) {
   }
 }
 
-console.log("j",inputString, "=>","j",duplicatedString);
+console.log(inputString, "=>", duplicatedString);
