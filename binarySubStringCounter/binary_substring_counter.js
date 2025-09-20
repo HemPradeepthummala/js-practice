@@ -1,5 +1,5 @@
-const number = 65;
-const substringToSearch = 10;
+const number = 8;
+const substringToSearch = 1;
 let duplicatedNumber = number;
 let resultedBinary = 0;
 let binaryNumber = 0
@@ -28,6 +28,27 @@ while (duplicatedNumber !== 0) {
     resultedBinary = resultedBinary / 10;
     duplicatedNumber = duplicatedNumber / 2;
 }
+console.log(binaryNumber,"=> binaryNumber");
 
-console.log(binaryNumber);
+let divisor = 1;
+let duplicatedSubstring = substringToSearch;
 
+while(duplicatedSubstring !== 0) {
+    remainder = duplicatedSubstring % 2;
+    remainder && duplicatedSubstring--;
+    divisor = divisor * 10;
+    duplicatedSubstring = duplicatedSubstring / 10;
+}
+
+let stringOccuranceCounter = 0;
+
+while (binaryNumber !== 0) {
+    let comparableString = binaryNumber % divisor;
+    remainder = binaryNumber % 2;
+    remainder && binaryNumber--;
+    binaryNumber = binaryNumber / 10;
+    comparableString === substringToSearch && stringOccuranceCounter++;
+}
+
+console.log(substringToSearch,"=> substring", divisor, "=> divisor");
+console.log(stringOccuranceCounter, "=> occurance");
