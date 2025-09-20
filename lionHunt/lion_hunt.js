@@ -1,20 +1,28 @@
-const input = "L  ZL Z";
+const inputString = "   L Z Z L";
 const space = " ";
 let distance = 0;
 let output = -1;
-let animal = input[0];
+let duplicatedString = "";
 
-for (let index = 0; index < input.length; index++) {
-  input[index] === space && distance++;
-  input[index] === animal && (distance = 0);
-  if (input[index] !== animal && input[index] !== space) {
+for (let index = 0; index < inputString.length; index++) {
+  if (inputString[index] !== space || duplicatedString !== "") {
+    duplicatedString = duplicatedString + inputString[index];
+  }
+}
+
+let animal = duplicatedString[0];
+
+for (let index = 0; index < duplicatedString.length; index++) {
+  duplicatedString[index] === space && distance++;
+  duplicatedString[index] === animal && (distance = 0);
+  if (duplicatedString[index] !== animal && duplicatedString[index] !== space) {
     let compareOutput = output === -1 || output > distance;
     if (compareOutput) {
       output = distance;
       distance = 0;
-      animal = input[index];
+      animal = duplicatedString[index];
     }
   }
 }
 
-console.log(distance, "=> distance", output, "=> output");
+console.log("input :", inputString, "output :", output);
