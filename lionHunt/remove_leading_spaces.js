@@ -1,14 +1,11 @@
-const input = "  hem";
-const space = " ";
+const inputString = "  he m";
+const leadingCharacter = " ";
 let duplicatedString = "";
 
-input[0] !== space && (duplicatedString = input[0]);
-console.log(duplicatedString);
+for (let index = 0; index < inputString.length; index++) {
+  if (inputString[index] !== leadingCharacter || duplicatedString !== "") {
+    duplicatedString = duplicatedString + inputString[index];
+  }
+}
 
-input[1] !== space && (duplicatedString = input[1]);
-console.log(duplicatedString);
-
-input[2] !== space && (duplicatedString = input[2]);
-console.log(duplicatedString);
-
-console.log(input, "=> 'hem'");
+console.log("j",inputString, "=>","j",duplicatedString);
