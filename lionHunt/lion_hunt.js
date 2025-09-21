@@ -1,4 +1,4 @@
-const inputString = "   L Z Z L";
+const inputString = "L Z   L L  LZ";
 const space = " ";
 let distance = 0;
 let output = -1;
@@ -19,9 +19,9 @@ for (let index = 0; index < duplicatedString.length; index++) {
     let compareOutput = output === -1 || output > distance;
     if (compareOutput) {
       output = distance;
-      distance = 0;
-      animal = duplicatedString[index];
     }
+    animal = duplicatedString[index];
+    distance = 0;
   }
 }
 
