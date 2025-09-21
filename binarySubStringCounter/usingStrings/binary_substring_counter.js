@@ -10,5 +10,11 @@ while (number !== 0) {
   number = number / 2;
 }
 
+let occuranceCounter = 0;
+let comparableString = "";
+comparableString = resultedBinary[0] + resultedBinary[1];
+subString === comparableString && occuranceCounter++;
+
+console.log("occuranceCounter =>", occuranceCounter);
 console.log("number =>", number, "resultedBinary =>", resultedBinary);
 console.log(inputNumber, subString, "count => 1");
