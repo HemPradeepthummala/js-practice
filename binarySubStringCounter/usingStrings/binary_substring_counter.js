@@ -1,5 +1,5 @@
-const inputNumber = 65;
-const subString = "10";
+const inputNumber = 21;
+const subString = "101";
 let number = inputNumber;
 let resultedBinary = "";
 
@@ -11,32 +11,19 @@ while (number !== 0) {
 }
 
 let occuranceCounter = 0;
-let comparableString = "";
-let index = 0;
 
-comparableString = resultedBinary[index] + resultedBinary[++index];
-subString === comparableString && occuranceCounter++;
-console.log("comparableString",comparableString);
-
-comparableString = resultedBinary[index] + resultedBinary[++index];
-subString === comparableString && occuranceCounter++;
-console.log("comparableString",comparableString);
-
-comparableString = resultedBinary[index] + resultedBinary[++index];
-subString === comparableString && occuranceCounter++;
-console.log("comparableString",comparableString);
-
-comparableString = resultedBinary[index] + resultedBinary[++index];
-subString === comparableString && occuranceCounter++;
-console.log("comparableString",comparableString);
-
-comparableString = resultedBinary[index] + resultedBinary[++index];
-subString === comparableString && occuranceCounter++;
-console.log("comparableString",comparableString);
-
-comparableString = resultedBinary[index] + resultedBinary[++index];
-subString === comparableString && occuranceCounter++;
-console.log("comparableString",comparableString);
+for (let index = 0; index < resultedBinary.length - 1; index++) {
+  let comparableString = "";
+  let substringIndex = index;
+  let iterator = 0;
+  while(iterator < subString.length){
+    comparableString = comparableString + resultedBinary[substringIndex];
+    substringIndex++;
+    iterator++;
+  }
+  subString === comparableString && occuranceCounter++;
+  console.log("comparableString", comparableString);
+}
 
 console.log("occuranceCounter =>", occuranceCounter);
 console.log("number =>", number, "resultedBinary =>", resultedBinary);
