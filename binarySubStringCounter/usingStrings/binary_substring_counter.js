@@ -11,18 +11,19 @@ while (number !== 0) {
 }
 
 let occuranceCounter = 0;
-
-for (let index = 0; index < resultedBinary.length - 1; index++) {
+let limit = subString.length - 1;
+for (let index = 0; index < resultedBinary.length - limit; index++) {
   let comparableString = "";
   let comparableStringIndex = index;
   let iterator = 0;
-  while(iterator < subString.length){
+  while (iterator < subString.length) {
     comparableString = comparableString + resultedBinary[comparableStringIndex];
     comparableStringIndex++;
     iterator++;
   }
   subString === comparableString && occuranceCounter++;
+  console.log(comparableString)
 }
 
-console.log("Number =>",inputNumber,"Binary Number =>", resultedBinary);
-console.log("SubString =>",subString,"Occurrence =>",occuranceCounter);
+console.log("Number =>", inputNumber, "Binary Number =>", resultedBinary);
+console.log("SubString =>", subString, "Occurrence =>", occuranceCounter);
