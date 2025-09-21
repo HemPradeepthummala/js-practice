@@ -4,49 +4,49 @@ let number = inputNumber;
 let resultedBinary = "";
 
 let remainder = number % 2;
-resultedBinary = resultedBinary + remainder;
+resultedBinary = remainder + resultedBinary;
 remainder && (number -= 1);
 number = number / 2;
 
 console.log("number =>", number, "resultedBinary =>", resultedBinary);
 
 remainder = number % 2;
-resultedBinary = resultedBinary + remainder;
+resultedBinary = remainder + resultedBinary;
 remainder && (number -= 1);
 number = number / 2;
 
 console.log("number =>", number, "resultedBinary =>", resultedBinary);
 
 remainder = number % 2;
-resultedBinary = resultedBinary + remainder;
+resultedBinary = remainder + resultedBinary;
 remainder && (number -= 1);
 number = number / 2;
 
 console.log("number =>", number, "resultedBinary =>", resultedBinary);
 
 remainder = number % 2;
-resultedBinary = resultedBinary + remainder;
+resultedBinary = remainder + resultedBinary;
 remainder && (number -= 1);
 number = number / 2;
 
 console.log("number =>", number, "resultedBinary =>", resultedBinary);
 
 remainder = number % 2;
-resultedBinary = resultedBinary + remainder;
+resultedBinary = remainder + resultedBinary;
 remainder && (number -= 1);
 number = number / 2;
 
 console.log("number =>", number, "resultedBinary =>", resultedBinary);
 
 remainder = number % 2;
-resultedBinary = resultedBinary + remainder;
+resultedBinary = remainder + resultedBinary;
 remainder && (number -= 1);
 number = number / 2;
 
 console.log("number =>", number, "resultedBinary =>", resultedBinary);
 
 remainder = number % 2;
-resultedBinary = resultedBinary + remainder;
+resultedBinary = remainder + resultedBinary;
 remainder && (number -= 1);
 number = number / 2;
 
