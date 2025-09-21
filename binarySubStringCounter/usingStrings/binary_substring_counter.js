@@ -14,11 +14,11 @@ let occuranceCounter = 0;
 
 for (let index = 0; index < resultedBinary.length - 1; index++) {
   let comparableString = "";
-  let substringIndex = index;
+  let comparableStringIndex = index;
   let iterator = 0;
   while(iterator < subString.length){
-    comparableString = comparableString + resultedBinary[substringIndex];
-    substringIndex++;
+    comparableString = comparableString + resultedBinary[comparableStringIndex];
+    comparableStringIndex++;
     iterator++;
   }
   subString === comparableString && occuranceCounter++;
