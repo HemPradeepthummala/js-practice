@@ -12,28 +12,29 @@ while (number !== 0) {
 
 let occuranceCounter = 0;
 let comparableString = "";
+let index = 0;
 
-comparableString = resultedBinary[0] + resultedBinary[1];
+comparableString = resultedBinary[index] + resultedBinary[++index];
 subString === comparableString && occuranceCounter++;
 console.log("comparableString",comparableString);
 
-comparableString = resultedBinary[1] + resultedBinary[2];
+comparableString = resultedBinary[index] + resultedBinary[++index];
 subString === comparableString && occuranceCounter++;
 console.log("comparableString",comparableString);
 
-comparableString = resultedBinary[2] + resultedBinary[3];
+comparableString = resultedBinary[index] + resultedBinary[++index];
 subString === comparableString && occuranceCounter++;
 console.log("comparableString",comparableString);
 
-comparableString = resultedBinary[3] + resultedBinary[4];
+comparableString = resultedBinary[index] + resultedBinary[++index];
 subString === comparableString && occuranceCounter++;
 console.log("comparableString",comparableString);
 
-comparableString = resultedBinary[4] + resultedBinary[5];
+comparableString = resultedBinary[index] + resultedBinary[++index];
 subString === comparableString && occuranceCounter++;
 console.log("comparableString",comparableString);
 
-comparableString = resultedBinary[5] + resultedBinary[6];
+comparableString = resultedBinary[index] + resultedBinary[++index];
 subString === comparableString && occuranceCounter++;
 console.log("comparableString",comparableString);
 
