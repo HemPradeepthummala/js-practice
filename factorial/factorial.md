@@ -1,5 +1,6 @@
 # find factorial of a number
 | Number | Output |
+|----|----|
 | 0      | 1 is factorial of 0 |
 | 1      | 2 is factorial of 1 | 
 | 3      | 6 is factorial of 3 |
