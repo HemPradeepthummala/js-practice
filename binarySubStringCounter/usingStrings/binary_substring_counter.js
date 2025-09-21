@@ -22,9 +22,7 @@ for (let index = 0; index < resultedBinary.length - 1; index++) {
     iterator++;
   }
   subString === comparableString && occuranceCounter++;
-  console.log("comparableString", comparableString);
 }
 
-console.log("occuranceCounter =>", occuranceCounter);
-console.log("number =>", number, "resultedBinary =>", resultedBinary);
-console.log(inputNumber, subString, "count => 1");
+console.log("Number =>",inputNumber,"Binary Number =>", resultedBinary);
+console.log("SubString =>",subString,"Occurrence =>",occuranceCounter);
