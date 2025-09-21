@@ -1,5 +1,5 @@
-const inputNumber = 21;
-const subString = "101";
+const inputNumber = 65;
+const subString = "00";
 let number = inputNumber;
 let resultedBinary = "";
 
@@ -22,7 +22,6 @@ for (let index = 0; index < resultedBinary.length - limit; index++) {
     iterator++;
   }
   subString === comparableString && occuranceCounter++;
-  console.log(comparableString)
 }
 
 console.log("Number =>", inputNumber, "Binary Number =>", resultedBinary);
