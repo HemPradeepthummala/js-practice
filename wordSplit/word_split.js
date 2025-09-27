@@ -7,38 +7,21 @@ function findType(character) {
 function splitWord(input) {
   let string = input[0];
   let type = findType(input[0]);
-  let stringSplit = '';
+  let split = '';
 
-  if (type === findType(input[1])) {
-    stringSplit += ',' + input[1];
-  } else {
-    string += input[1];
+  for (let index = 1; index < input.length; index++) {
+    const currentType = findType(input[index]);
+
+    if (type !== currentType) {
+      string += input[index];
+    } else {
+      split += ',' + input[index];
+    }
+
+    type = currentType;
   }
-  type = findType(input[1]);
-  
-  if (type === findType(input[2])) {
-    stringSplit += ',' + input[2];
-  } else {
-    string += input[2];
-  }
-  type = findType(input[2]);
 
-  if (type === findType(input[3])) {
-    stringSplit += ',' + input[3];
-  } else {
-    string += input[3];
-  }
-  type = findType(input[3]);
-
-
-  if (type === findType(input[4])) {
-    stringSplit += ',' + input[4];
-  } else {
-    string += input[4];
-  }
-  type = findType(input[4]);
-
-  return string + stringSplit;
+  return string + split;
 }
 
 function composeMessage(input, expected, actual) {
