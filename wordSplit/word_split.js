@@ -35,6 +35,11 @@ function testAll() {
   testSplitWord('apple', 'ape,p,l');
   testSplitWord('there', 'tere,h');
   testSplitWord('hello', 'helo,l');
+  testSplitWord('abc', 'ab,c');
+  testSplitWord('abcd', 'ab,c,d');
+  testSplitWord('abcde', 'abe,c,d');
+  testSplitWord('three', 'te,h,r,e');
+  testSplitWord('abyss', 'ab,y,s,s');
 }
 
 testAll();
