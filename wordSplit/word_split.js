@@ -11,7 +11,8 @@ function splitWord(input) {
 
   for (let index = 0; index < input.length; index++) {
     const currentType = findType(input[index]);
-    type !== currentType ? string += input[index] : split += ',' + input[index];
+    string += type !== currentType ? input[index] : '';
+    split += type === currentType ? ',' + input[index] : '';
     type = currentType;
   }
 
@@ -38,7 +39,7 @@ function testAll() {
   testSplitWord('abc', 'ab,c');
   testSplitWord('abcd', 'ab,c,d');
   testSplitWord('abcde', 'abe,c,d');
-  testSplitWord('three', 'te,h,r,e');
+  testSplitWord('three', 'te,he,r');
   testSplitWord('abyss', 'ab,y,s,s');
 }
 
