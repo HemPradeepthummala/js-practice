@@ -23,6 +23,13 @@ function splitWord(input) {
   }
   type = findType(input[2]);
 
+  if (type === findType(input[3])) {
+    stringSplit += ',' + input[3];
+  } else {
+    string += input[3];
+  }
+  type = findType(input[3]);
+
   return string + stringSplit;
 }
 
