@@ -1,6 +1,12 @@
+function findType(character) {
+  const isAOrE = character === 'a' || character === 'e';
+  const isIOrOOrU = character === 'i' || character === 'o' || character === 'u';
+  return isAOrE || isIOrOOrU ? 'vowel' : 'consonant';
+}
+
 function splitWord(input) {
   let string = input[0];
-  let type = input[0] === 'a' ? 'vowel' : 'consonant'; // assuming this gives the type of character 
+  let type = findType(input[0]); 
   return string;
 }
 
