@@ -6,8 +6,24 @@ function findType(character) {
 
 function splitWord(input) {
   let string = input[0];
-  let type = findType(input[0]); 
-  return string;
+  let type = findType(input[0]);
+  let stringSplit = '';
+
+  if (type === findType(input[1])) {
+    stringSplit += ',' + input[1];
+  } else {
+    string += input[1];
+  }
+  type = findType(input[1]);
+  
+  if (type === findType(input[2])) {
+    stringSplit += ',' + input[2];
+  } else {
+    string += input[2];
+  }
+  type = findType(input[2]);
+
+  return string + stringSplit;
 }
 
 function composeMessage(input, expected, actual) {
