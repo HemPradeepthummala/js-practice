@@ -1,5 +1,7 @@
 function splitWord(input) {
-  return 'ape,p,l';
+  let string = input[0];
+  let type = input[0] === 'a' ? 'vowel' : 'consonant'; // assuming this gives the type of character 
+  return string;
 }
 
 function composeMessage(input, expected, actual) {
