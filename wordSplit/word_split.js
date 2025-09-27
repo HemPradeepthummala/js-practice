@@ -5,19 +5,13 @@ function findType(character) {
 }
 
 function splitWord(input) {
-  let string = input[0];
-  let type = findType(input[0]);
+  let string = '';
+  let type;
   let split = '';
 
-  for (let index = 1; index < input.length; index++) {
+  for (let index = 0; index < input.length; index++) {
     const currentType = findType(input[index]);
-
-    if (type !== currentType) {
-      string += input[index];
-    } else {
-      split += ',' + input[index];
-    }
-
+    type !== currentType ? string += input[index] : split += ',' + input[index];
     type = currentType;
   }
 
@@ -40,6 +34,7 @@ function testSplitWord(input, expected) {
 function testAll() {
   testSplitWord('apple', 'ape,p,l');
   testSplitWord('there', 'tere,h');
+  testSplitWord('hello', 'helo,l');
 }
 
 testAll();
