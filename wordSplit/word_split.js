@@ -17,6 +17,7 @@ function testSplitWord(input, expected) {
 
 function testAll() {
   testSplitWord('apple', 'ape,p,l');
+  testSplitWord('there', 'tere,h');
 }
 
 testAll();
