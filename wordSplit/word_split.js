@@ -5,18 +5,26 @@ function findType(character) {
 }
 
 function splitWord(input) {
-  let string = '';
-  let type;
-  let split = '';
+  let string = input;
+  let result = '';
+  
+  while (string.length > 1) {
+    let remainingString = '';
+    let type = '';
+    let split = '';
 
-  for (let index = 0; index < input.length; index++) {
-    const currentType = findType(input[index]);
-    string += type !== currentType ? input[index] : '';
-    split += type === currentType ? ',' + input[index] : '';
-    type = currentType;
+    for (let index = 0; index < string.length; index++) {
+      const currentType = findType(string[index]);
+      split += type !== currentType ? string[index] : '';
+      remainingString += type === currentType ? string[index] : '';
+      type = currentType;
+    }
+
+    string = remainingString;
+    result += split + ',';
   }
-
-  return string + split;
+  
+  return result + string;
 }
 
 function composeMessage(input, expected, actual) {
@@ -39,7 +47,7 @@ function testAll() {
   testSplitWord('abc', 'ab,c');
   testSplitWord('abcd', 'ab,c,d');
   testSplitWord('abcde', 'abe,c,d');
-  testSplitWord('three', 'te,he,r');
+  testSplitWord('threee', 'te,he,r');
   testSplitWord('abyss', 'ab,y,s,s');
 }
 
