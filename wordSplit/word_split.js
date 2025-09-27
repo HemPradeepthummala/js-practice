@@ -30,6 +30,14 @@ function splitWord(input) {
   }
   type = findType(input[3]);
 
+
+  if (type === findType(input[4])) {
+    stringSplit += ',' + input[4];
+  } else {
+    string += input[4];
+  }
+  type = findType(input[4]);
+
   return string + stringSplit;
 }
 
