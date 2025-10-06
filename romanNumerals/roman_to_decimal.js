@@ -41,6 +41,8 @@ function testRomanTODecimal(description, romanNumber, expected) {
 function testAll() {
   testRomanTODecimal("Roman I", "I", 1);
   testRomanTODecimal("Roman II", "II", 2);
+  testRomanTODecimal("Roman III", "III", 3);
+  testRomanTODecimal("Roman IV", "IV", 4);
 }
 
 testAll();
