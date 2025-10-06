@@ -1,21 +1,22 @@
 function findValue(romanChar) {
   switch (romanChar) {
-    case 'I' : return 1;
-    case 'V' : return 5;
-    case 'X' : return 10;
-    case 'L' : return 50;
-    case 'C' : return 100;
-    case 'D' : return 500;
-    case 'M' : return 1000;
+    case 'I': return 1;
+    case 'V': return 5;
+    case 'X': return 10;
+    case 'L': return 50;
+    case 'C': return 100;
+    case 'D': return 500;
+    case 'M': return 1000;
   }
 }
 
 function convertToDecimal(romanNumber) {
-  let decimalNumber = 0;
-
-  for (let index = 0; index < romanNumber.length; index++) {
-    const value = findValue(romanNumber[index]);
-    decimalNumber += value;
+  let prevValue = findValue(romanNumber[0])
+  let decimalNumber = prevValue;
+  for (let index = 1; index < romanNumber.length; index++) {
+    const currentValue = findValue(romanNumber[index]);
+    decimalNumber = prevValue < currentValue ? currentValue - decimalNumber : decimalNumber += currentValue;
+    prevValue = currentValue;
   }
   return decimalNumber;
 }
@@ -43,6 +44,8 @@ function testAll() {
   testRomanTODecimal("Roman II", "II", 2);
   testRomanTODecimal("Roman III", "III", 3);
   testRomanTODecimal("Roman IV", "IV", 4);
+  testRomanTODecimal("Roman V", "V", 5);
+  testRomanTODecimal("Roman VI", "VI", 6);
 }
 
 testAll();
