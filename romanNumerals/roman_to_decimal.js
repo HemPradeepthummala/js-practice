@@ -46,6 +46,9 @@ function testAll() {
   testRomanTODecimal("Roman IV", "IV", 4);
   testRomanTODecimal("Roman V", "V", 5);
   testRomanTODecimal("Roman VI", "VI", 6);
+  testRomanTODecimal("Roman VII", "VII", 7);
+  testRomanTODecimal("Roman VIII", "VIII", 8);
+  testRomanTODecimal("Roman IX", "IX", 9);
 }
 
 testAll();
