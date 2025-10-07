@@ -10,12 +10,20 @@ function findValue(romanChar) {
   }
 }
 
+function calculateDecimalNumber(decimalNumber, prevValue, currentValue) {
+  if (prevValue < currentValue) {
+    return  currentValue - decimalNumber;
+  }
+  return decimalNumber + currentValue;
+}
+
 function convertToDecimal(romanNumber) {
   let prevValue = findValue(romanNumber[0])
   let decimalNumber = prevValue;
+
   for (let index = 1; index < romanNumber.length; index++) {
     const currentValue = findValue(romanNumber[index]);
-    decimalNumber = prevValue < currentValue ? currentValue - decimalNumber : decimalNumber += currentValue;
+    decimalNumber = calculateDecimalNumber(decimalNumber, prevValue, currentValue);
     prevValue = currentValue;
   }
   return decimalNumber;
@@ -49,6 +57,17 @@ function testAll() {
   testRomanTODecimal("Roman VII", "VII", 7);
   testRomanTODecimal("Roman VIII", "VIII", 8);
   testRomanTODecimal("Roman IX", "IX", 9);
+  testRomanTODecimal("Roman X", "X", 10);
+  testRomanTODecimal("Roman XI", "XI", 11);
+  testRomanTODecimal("Roman XII", "XII", 12);
+  testRomanTODecimal("Roman XIII", "XIII", 13);
+  testRomanTODecimal("Roman XIV", "XIV", 14);
+  testRomanTODecimal("Roman XV", "XV", 15);
+  testRomanTODecimal("Roman XVI", "XVI", 16);
+  testRomanTODecimal("Roman XVII", "XVII", 17);
+  testRomanTODecimal("Roman XVIII", "XVIII", 18);
+  testRomanTODecimal("Roman XXI", "XIX", 19);
+  testRomanTODecimal("Roman XX", "XX", 20);
 }
 
 testAll();
