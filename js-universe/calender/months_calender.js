@@ -10,14 +10,23 @@ function adjustMonthandYear([month, year]) {
   return [month, year];
 }
 
+function findDay(h) {
+  if (h < 0) {
+    const quotient = Math.abs(h) % 7;
+    const remainder = 7 - quotient;
+    return remainder - 1;
+  }
+  return (h - 1) % 7;
+}
+
 function findFirstDay(month, year) {
   const [adMonth, adYear] = adjustMonthandYear([month, year]);
   const m = parseInt(adMonth);
   const d = 1;
   const k = parseInt(adYear.slice(2));
   const j = parseInt(adYear.slice(0, 2));
-  const h = Math.floor(d + 13 * (m + 1) / 5 + k + (k / 4) + (j / 4) - 2 * j);
-  return (h - 1) % 7;
+  const h = Math.floor(d + 13 * Math.floor(m + 1) / 5 + k + Math.floor(k / 4) + Math.floor(j / 4) - 2 * j);
+  return findDay(h);
 }
 
 function isLeapYear(year) {
@@ -82,4 +91,5 @@ function generateCalender([month, year]) {
   console.log(`invalid Inputs [ ${month}, ${year}]`);
 }
 
-generateCalender(Deno.args);
+for (let i = 3; i < 4; i++)
+  generateCalender([i + '', '2004']);
