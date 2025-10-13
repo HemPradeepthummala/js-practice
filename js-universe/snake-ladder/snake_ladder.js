@@ -7,6 +7,10 @@ function pad(value, length = 4) {
   return value.toString().padStart(length, '_')
 }
 
+function addNumber(col, row) {
+  return row % 2 === 0 ? col + 1 + row * 10 : COLUMNS - col + row * 10;
+}
+
 function addItems(col, row) {
   const value = addNumber(col, row);
   if (SNAKES.includes(value)) {
@@ -18,16 +22,12 @@ function addItems(col, row) {
   return '____';
 }
 
-function addNumber(col, row) {
-  return row % 2 === 0 ? col + 1 + row * 10 : COLUMNS - col + row * 10;
-}
 
 function makeRow(size, row) {
   const array = [];
 
   for (let index = 0; index < size; index++) {
     array.push(addItems(index, row));
-    // array.push(addNumber(index, row));
   }
   return array;
 }
@@ -47,7 +47,6 @@ function generateBoard() {
     array.unshift(makeRow(COLUMNS, row));
   }
 
-  displayBoard(array);
   return array;
 }
 
@@ -60,7 +59,7 @@ function assignPlayers() {
 
 function delay() {
   // const delimiters = ['|', '/', '\\'];
-  for (let i = 0; i < 10000000_000; i++);
+  for (let i = 0; i < 2000_000_000; i++);
 }
 
 function generateRandom(min = 1, max = 7) {
@@ -70,14 +69,20 @@ function generateRandom(min = 1, max = 7) {
 function findCoOrds(value) {
   const row = Math.floor((value - 1) / ROWS);
   const columnValue = Math.floor(((value - 1) % 10));
-  const column = row % 2 === 0 ? columnValue : Math.floor(COLUMNS - columnValue - 1);
-  return [row , column];
+  const col = row % 2 === 0 ? columnValue : Math.floor(COLUMNS - columnValue - 1);
+  return [ROWS - row - 1, col];
 }
 
-function makeMove(player, emoji, diceNumber, position, array) {
+function makeMove(prev, emoji, diceNumber, position, array) {
   position[0] += position[0] + diceNumber <= 100 ? diceNumber : 0;
+  array[prev[0]][prev[1]] = prev[2];
   const [row, col] = findCoOrds(position[0]);
-  console.log(array[row][col]);
+  prev[0] = row;
+  prev[1] = col;
+  prev[2] = array[row][col];
+  array[row][col] = emoji;
+  displayBoard(array);
+  delay();
 }
 
 function playTheGame(array, players) {
@@ -85,20 +90,22 @@ function playTheGame(array, players) {
   const emojis = ['_⛹🏼‍♂️_', '_⛹🏻_'];
   let index = 0;
   const positions = [[0], [0]];
+  const previous = [[0, 0, '____'], [0, 0, '____']];
   const isFirstMove = [true, true];
-  while (index<12) {
-    const player = players[index % length];
-    const emoji = emojis[index % length];
+  while (index < 50) {
+    const actIndex = index % length;
+    const player = players[actIndex];
+    const emoji = emojis[actIndex];
     const diceNumber = generateRandom();
-    // if (!isFirstMove[index % length] || diceNumber === 6) {
-      const victory = makeMove(player, emoji, diceNumber, positions[index % length], array);
-    // }
+    console.clear();
+    makeMove(previous[actIndex], emoji, diceNumber, positions[actIndex], array);
     index++;
   }
 }
 
 function playSnakeAndLadder() {
   const array = generateBoard();
+  displayBoard(array);
   const players = assignPlayers();
   playTheGame(array, players);
 }
