@@ -46,7 +46,20 @@ function generateBoard() {
     array.unshift(makeRow(COLUMNS, row));
   }
 
-  return displayBoard(array);
+  displayBoard(array);
+  return array;
 }
 
-generateBoard()
+function assignPlayers() {
+  const players = [];
+  players.push(prompt('enter name of Player 1'));
+  players.push(prompt('enter name of Player 2'));
+  return players;
+}
+
+function playSnakeAndLadder() {
+  const array = generateBoard();
+  const players = assignPlayers();
+}
+
+playSnakeAndLadder();
