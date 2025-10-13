@@ -27,6 +27,7 @@ function makeRow(size, row) {
 
   for (let index = 0; index < size; index++) {
     array.push(addItems(index, row));
+    // array.push(addNumber(index, row));
   }
   return array;
 }
@@ -58,6 +59,7 @@ function assignPlayers() {
 }
 
 function delay() {
+  // const delimiters = ['|', '/', '\\'];
   for (let i = 0; i < 10000000_000; i++);
 }
 
@@ -65,19 +67,33 @@ function generateRandom(min = 1, max = 7) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
+function findCoOrds(value) {
+  const row = Math.floor((value - 1) / ROWS);
+  const columnValue = Math.floor(((value - 1) % 10));
+  const column = row % 2 === 0 ? columnValue : Math.floor(COLUMNS - columnValue - 1);
+  return [row , column];
+}
+
+function makeMove(player, emoji, diceNumber, position, array) {
+  position[0] += position[0] + diceNumber <= 100 ? diceNumber : 0;
+  const [row, col] = findCoOrds(position[0]);
+  console.log(array[row][col]);
+}
+
 function playTheGame(array, players) {
+  const length = players.length;
   const emojis = ['_⛹🏼‍♂️_', '_⛹🏻_'];
   let index = 0;
-  const positions = [0, 0];
-  while (true) {
-    const player = players[index % players.length];
-    const emoji = emojis[index % emojis.length];
-    const char = prompt(`${player}, type R to roll the dice`);
-    if (char.toLowerCase() !== 'r') {
-      console.log(`Invalid, you entered ${char} please enter r or R`);
-      continue;
-    }
+  const positions = [[0], [0]];
+  const isFirstMove = [true, true];
+  while (index<12) {
+    const player = players[index % length];
+    const emoji = emojis[index % length];
     const diceNumber = generateRandom();
+    // if (!isFirstMove[index % length] || diceNumber === 6) {
+      const victory = makeMove(player, emoji, diceNumber, positions[index % length], array);
+    // }
+    index++;
   }
 }
 
