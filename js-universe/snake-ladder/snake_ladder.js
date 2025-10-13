@@ -8,18 +8,18 @@ function pad(value, length = 4) {
 }
 
 function addItems(col, row) {
-  const value = addNumber(col,row);
+  const value = addNumber(col, row);
   if (SNAKES.includes(value)) {
     return '_🐍_';
   }
   if (LADDER.includes(value)) {
-     return '_🪜_';
+    return '_🪜_';
   }
   return '____';
 }
 
 function addNumber(col, row) {
-  return row % 2 === 0 ? col + 1 + row * 10 : COLUMNS - col  + row * 10;
+  return row % 2 === 0 ? col + 1 + row * 10 : COLUMNS - col + row * 10;
 }
 
 function makeRow(size, row) {
@@ -57,9 +57,34 @@ function assignPlayers() {
   return players;
 }
 
+function delay() {
+  for (let i = 0; i < 10000000_000; i++);
+}
+
+function generateRandom(min = 1, max = 7) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
+function playTheGame(array, players) {
+  const emojis = ['_⛹🏼‍♂️_', '_⛹🏻_'];
+  let index = 0;
+  const positions = [0, 0];
+  while (true) {
+    const player = players[index % players.length];
+    const emoji = emojis[index % emojis.length];
+    const char = prompt(`${player}, type R to roll the dice`);
+    if (char.toLowerCase() !== 'r') {
+      console.log(`Invalid, you entered ${char} please enter r or R`);
+      continue;
+    }
+    const diceNumber = generateRandom();
+  }
+}
+
 function playSnakeAndLadder() {
   const array = generateBoard();
   const players = assignPlayers();
+  playTheGame(array, players);
 }
 
 playSnakeAndLadder();
