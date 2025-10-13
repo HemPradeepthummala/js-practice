@@ -91,5 +91,4 @@ function generateCalender([month, year]) {
   console.log(`invalid Inputs [ ${month}, ${year}]`);
 }
 
-for (let i = 3; i < 4; i++)
-  generateCalender([i + '', '2004']);
+generateCalender(Deno.args)
