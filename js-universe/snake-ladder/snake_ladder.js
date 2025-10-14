@@ -60,11 +60,32 @@ function findCoOrds(value) {
   return [ROWS - row - 1, col];
 }
 
-function makeMove(prev, emoji, diceNumber, position, array) {
+function addItems(col, row) {
+  const value = addNumber(col, row);
+  if (SNAKES.includes(value)) {
+    return '_🐍_';
+  }
+  if (LADDER.includes(value)) {
+    return '_🪜_';
+  }
+  return '____';
+}
+
+function addPrevious(row, col, char, previous) {
+  if (('_🐍_,_🪜_,____'.includes(char))) {
+
+    return [row, col, char];
+  }
+
+  return [row, col, previous[2]];
+}
+
+function makeMove(prev, index, emoji, diceNumber, position, array) {
   position[0] += position[0] + diceNumber <= 100 ? diceNumber : 0;
-  array[prev[0]][prev[1]] = prev[2];
+  const previous = prev[index];
+  array[previous[0]][previous[1]] = previous[2];
   const [row, col] = findCoOrds(position[0]);
-  prev = [row, col, array[row][col]]
+  prev[index] = addPrevious(row, col, array[row][col], prev[(index + 1) % 2]);
   array[row][col] = emoji
   displayBoard(array);
   delay();
@@ -83,7 +104,7 @@ function playTheGame(array, players) {
     const player = players[actIndex];
     const emoji = emojis[actIndex];
     const diceNumber = number/* generateRandom() */;
-    makeMove(previous[actIndex], emoji, diceNumber, positions[actIndex], array);
+    makeMove(previous, actIndex, emoji, diceNumber, positions[actIndex], array);
     index++;
   }
 }
@@ -96,8 +117,8 @@ function addItem(array, positions, emoji) {
 }
 
 function addSnakesAndLadders(array) {
-  addItem(array,SNAKES,'_🐍_');
-  addItem(array,LADDER,'_🪜_');
+  addItem(array, SNAKES, '_🐍_');
+  addItem(array, LADDER, '_🪜_');
 }
 
 function playSnakeAndLadder() {
