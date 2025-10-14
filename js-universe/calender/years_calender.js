@@ -52,27 +52,42 @@ function generateWeek(totalDays, currentDay, day = 0) {
   return line.join(' ');
 }
 
-function generateCalender(year) {
-  const array = [];
-  const firstDays = [];
-  const totalDays = [];
-
-  for (let month = 1; month <= 3; month++) {
-    firstDays.push(findFirstDay(month, year));
-    totalDays.push(calculateTotalDays(year, month));
-  }
-  const currentDay = [0, 0, 0];
-  for (let week = 0; week <= 6; week++) {
-    const weeks = [];
-    for (let index = 0; index < 3; index++) {
-      weeks.push(generateWeek(totalDays[index], currentDay[index] + 1, firstDays[index]));
-      currentDay[index] += 7 - firstDays[index];
-    }
-    firstDays.fill(0, 0, 3);
-    array.push(weeks.join('\t'));
-  }
-
-  return array.join('\n');
+function addMonth(month) {
+  return (MONTHS[month - 1]).padStart(16);
 }
 
-console.log(generateCalender('2025'))
+function generateCalender(year) {
+  const yearArray = [];
+  const weekDays = DAYS.join(' ');
+  yearArray.push(year.padStart(40))
+  for (let index = 1; index <= 12; index += 3) {
+    const array = [];
+    const firstDays = [];
+    const totalDays = [];
+    const limit = index + 2
+    const titles = [];
+    const days = [weekDays, weekDays, weekDays];
+    for (let month = index; month <= limit; month++) {
+      firstDays.push(findFirstDay(month, year));
+      totalDays.push(calculateTotalDays(year, month));
+      titles.push(addMonth(month));
+    }
+    array.push(titles.join('\t'), days.join('\t'));
+
+    const currentDay = [0, 0, 0];
+    for (let week = 0; week <= 6; week++) {
+      const weeks = [];
+      for (let index = 0; index < 3; index++) {
+        weeks.push(generateWeek(totalDays[index], currentDay[index] + 1, firstDays[index]));
+        currentDay[index] += 7 - firstDays[index];
+      }
+      firstDays.fill(0, 0, 3);
+      array.push(weeks.join('\t'));
+    }
+
+    yearArray.push(array.join('\n'));
+  }
+  return yearArray.join('\n');
+}
+
+console.log(generateCalender('2005'))
