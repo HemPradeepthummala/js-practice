@@ -1,5 +1,10 @@
 function encode(data) {
-  return 'i123e';
+  const type = typeof data;
+
+  switch (type) {
+    case 'number': return `i${data}e`;
+    case 'string': return `${data.length}:${data}`;
+  }
 }
 
 function bencode(data) {
@@ -27,7 +32,7 @@ function testAll() {
   testBencode('string data', "hello", "5:hello");
   testBencode('string data', "", "0:");
   testBencode('string data', "hello world", "11:hello world");
-  testBencode('string data', "special!@#$chars", "14:special!@#$chars");
+  testBencode('string data', "special!@#$chars", "16:special!@#$chars");
   testBencode('list type', ["apple", 123, ["banana", -5]], "l5:applei123el6:bananai-5eee");
   testBencode('empty list', [], "le");
   testBencode('nested list', [0, "", ["test"]], "li0e0:l4:testee");
