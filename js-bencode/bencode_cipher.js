@@ -1,9 +1,20 @@
+function encodeLists(data) {
+  let encodedString = '';
+
+  for (let index = 0; index < data.length; index++) {
+    encodedString += encode(data[index]);
+  }
+  
+  return encodedString;
+}
+
 function encode(data) {
   const type = typeof data;
 
   switch (type) {
     case 'number': return `i${data}e`;
     case 'string': return `${data.length}:${data}`;
+    case 'object': return `l${encodeLists(data)}e`;
   }
 }
 
