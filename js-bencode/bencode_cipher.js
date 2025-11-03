@@ -4,7 +4,7 @@ function encodeLists(data) {
   for (let index = 0; index < data.length; index++) {
     encodedString += encode(data[index]);
   }
-  
+
   return encodedString;
 }
 
@@ -44,11 +44,16 @@ function testAll() {
   testBencode('string data', "", "0:");
   testBencode('string data', "hello world", "11:hello world");
   testBencode('string data', "special!@#$chars", "16:special!@#$chars");
-  testBencode('list type', ["apple", 123, ["banana", -5]], "l5:applei123el6:bananai-5eee");
+  testBencode('list type',
+    ["apple", 123, ["banana", -5]],
+    "l5:applei123el6:bananai-5eee");
   testBencode('empty list', [], "le");
   testBencode('nested list', [0, "", ["test"]], "li0e0:l4:testee");
-  testBencode('nested empty list', ["", 0, []], "l0:i0ele");
-  testBencode('nested list of strings', ["one", ["two", ["three"]]], "l3:onel3:twol5:threeeee");
+  testBencode('empty list', [], 'le');
+  testBencode('nested empty list', ["", 0, []], "l0:i0elee");
+  testBencode('nested list of strings',
+    ["one", ["two", ["three"]]],
+    "l3:onel3:twol5:threeeee");
 }
 
 testAll();
