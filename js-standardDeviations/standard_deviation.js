@@ -45,7 +45,7 @@ function meanOf(data) {
   for (let index = 0; index < data.length; index++) {
     sum += data[index];
   }
-  return sum;
+  return sum / data.length;
 }
 
 function isOdd(number) {
@@ -62,11 +62,26 @@ function medianOf(data) {
   return median;
 }
 
+function sqrOf(n) {
+  return n * n;
+}
+
+function calculateVariance(mean, data) {
+  let sum = 0;
+  for (let index = 0; index < data.length; index++) {
+    sum += sqrOf(data[index] - mean);
+  }
+  return sum / data.length;
+}
+
 function standardDevition() {
   const data = randomData(6);
   const sortedData = simpleSort(data.slice());
   const mean = meanOf(sortedData);
   const median = medianOf(sortedData);
-
+  const variance = calculateVariance(mean, sortedData);
+  console.log(`data is ${sortedData}, median is ${median} variance is ${variance} mean is ${mean}`);
+  return Math.sqrt(variance);
 }
-standardDevition();
+
+console.log(standardDevition());
